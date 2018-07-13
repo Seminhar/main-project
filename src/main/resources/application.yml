@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+# \u6570\u636E\u6E90\u914D\u7F6E
+  datasource:
+    username: root
+    password:
+    url: "jdbc:mysql://127.0.0.1:3306/biaoshi?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false"
+  resources:
+    static-locations: classpath:static/
+  thymeleaf:
+    cache: false
+    enabled: false
+  mvc:
+#    static-path-pattern: /static/**/*
+    view:
+      suffix: .jsp
+      prefix: /WEB-INF/jsp/
+
+# TK MyBatis \u914D\u7F6E
+mapper:
+  mappers: com.example.main.util.BaseMapper
+  not-empty: false
+  b-e-f-o-r-e: true
+
+# MyBatis PageHelper \u5206\u9875\u63D2\u4EF6\u914D\u7F6E
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
